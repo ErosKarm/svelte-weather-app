@@ -4,6 +4,8 @@
 </script>
 
 <div class="h-full overflow-scroll rounded-lg bg-stone-100 p-6">
+	<h2 class="text-xl tracking-wide">Weather forecast</h2>
+
 	{#if $weatherForecastData}
 		{#each $weatherForecastData.list as forecast}
 			<div class="mt-4 flex items-center">
