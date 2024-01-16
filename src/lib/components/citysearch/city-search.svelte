@@ -40,19 +40,27 @@
 		// Call the OpenWeatherMap API
 
 		try {
+			console.log(city, 'this is the city');
+
 			const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 			const response = await fetch(apiUrl);
 			const data = await response.json();
 
+			if (response.ok === false) {
+				return;
+			}
+
 			weatherData.set(data);
 
-			const forecastApiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${data.coord.lat}&lon=${data.coord.lon}&appid=${apiKey}&units=metric`;
+			const forecastApiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${await data
+				.coord.lat}&lon=${await data.coord.lon}&appid=${apiKey}&units=metric`;
 
 			const forecastResponse = await fetch(forecastApiUrl);
 			const forecastData = await forecastResponse.json();
 			weatherForecastData.set(forecastData);
 		} catch (error) {
 			console.error('Error fetching data from OPENWEATHERMAP API:', error);
+			city = 'Tallinn';
 		} finally {
 			city = '';
 		}

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { CloudRainWind, CloudDrizzle } from 'lucide-svelte';
+	import { CloudRainWind, CloudDrizzle, AlignLeft, MapPinned, Bolt } from 'lucide-svelte';
 	import Button from '../ui/button/button.svelte';
 </script>
 
@@ -28,8 +28,8 @@
 			variant="ghost"
 			size="icon"
 		>
-			<CloudDrizzle />
-			<span>Weather</span>
+			<AlignLeft />
+			<span>Cities</span>
 		</Button>
 		<Button
 			disabled
@@ -38,8 +38,8 @@
 			variant="ghost"
 			size="icon"
 		>
-			<CloudDrizzle />
-			<span>Weather</span>
+			<MapPinned />
+			<span>Map</span>
 		</Button>
 		<Button
 			disabled
@@ -48,12 +48,12 @@
 			variant="ghost"
 			size="icon"
 		>
-			<CloudDrizzle />
-			<span>Weather</span>
+			<Bolt />
+			<span>Settings</span>
 		</Button>
 	</div>
 
-	<div class="text-xs text-muted-foreground">
+	<div class="flex flex-col items-center text-[10px] text-muted-foreground">
 		Made by <a class="underline" href="https://github.com/eroskarm">Eros Karm</a>
 	</div>
 </div>
